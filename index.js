@@ -95,7 +95,8 @@ i++;
 }
 // refreshes page to play again
 const replay =()=>{
-    let confirm = window.confirm('play again?')
+    let confirm = window.confirm(`Play Again?
+        \n Final Score: You: ${humanScore} : Computer: ${computerScore}`)
     if (confirm){
         window.location.reload();
     } else {
