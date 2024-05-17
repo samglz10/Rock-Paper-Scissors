@@ -6,9 +6,9 @@ let humanChoice = 'N/A';
 console.log(`Default Choice ${humanChoice}`);
 
 //create elemetnst
-const rockBtn = document.createElement("BUTTON");
-const paperBtn = document.createElement("BUTTON");
-const scissorsBtn = document.createElement("BUTTON");
+const rockBtn = document.createElement("button");
+const paperBtn = document.createElement("button");
+const scissorsBtn = document.createElement("button");
 const mainDiv = document.getElementById('main-container');
 const humanSelectionDiv = document.getElementById('human-selection');
 const humanChoiceP = document.getElementById('human-choice');
@@ -24,6 +24,9 @@ const roundResults = document.getElementById('round-results')
 rockBtn.innerText = choices[0];
 paperBtn.innerText = choices[1];
 scissorsBtn.innerText = choices[2];
+rockBtn.type = "submit";
+paperBtn.type = "submit";
+scissorsBtn.type = "submit";
 
 
 if(roundResults.hasChildNodes()){
@@ -67,22 +70,6 @@ humanSelectionDiv.append(paperBtn);
 humanSelectionDiv.append(scissorsBtn);
 
 
-
-
-/* No longer needed because of controlled input
-const getHumanChoice =(selection)=>{
-    let humanChoice = selection;
-    for(let i = 0; i < choices.length; i++){
-        const possibleChoices = choices[i];
-        if(humanChoice.toLowerCase() === possibleChoices){
-            humanChoice = possibleChoices.toLowerCase();
-            console.log(humanChoice);
-            return humanChoice;
-        } 
-    }
-        return 
-}
-*/
 const getComputerChoice = ()=>{
     let randomChoice = Math.floor(Math.random()* 3);
     let finalComputerChoice = choices[randomChoice];
