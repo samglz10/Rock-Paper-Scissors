@@ -41,7 +41,7 @@ rockBtn.addEventListener('click', ()=>{
     getComputerChoice();
     computerChoiceP.innerText =`I chose: ${computerChoice}` ;
     playRound(humanChoice, computerChoice); 
-    resultList.append(resultItem);
+    roundResults.append(resultItem);
 
 
   
@@ -52,7 +52,7 @@ paperBtn.addEventListener('click', ()=>{
     getComputerChoice();
     computerChoiceP.innerText =`I chose: ${computerChoice}` ;
     playRound(humanChoice, computerChoice); 
-    resultList.append(resultItem);
+    roundResults.append(resultItem);
 
 })
 scissorsBtn.addEventListener('click', ()=>{
@@ -61,7 +61,7 @@ scissorsBtn.addEventListener('click', ()=>{
     getComputerChoice();
     computerChoiceP.innerText =`I chose: ${computerChoice}` ;
     playRound(humanChoice, computerChoice); 
-    resultList.append(resultItem);
+    roundResults.append(resultItem);
 
 })
 
