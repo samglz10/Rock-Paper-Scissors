@@ -15,8 +15,9 @@ const humanChoiceP = document.getElementById('human-choice');
 const humanSpan = document.createElement('span');
 const ComputerSelectionDiv = document.getElementById('computer-selection');
 const computerChoiceP = document.getElementById('computer-choice');
-const resultList = document.getElementById('results')
+const resultList = document.getElementById('results');
 const resultItem = document.createElement('li');
+const resetBtn = document.getElementById('reset-btn');
 
 const roundResults = document.getElementById('round-results')
 
@@ -27,7 +28,6 @@ scissorsBtn.innerText = choices[2];
 rockBtn.type = "submit";
 paperBtn.type = "submit";
 scissorsBtn.type = "submit";
-
 
 if(roundResults.hasChildNodes()){
     resultItem.innerText = 'Make your move';
@@ -42,9 +42,6 @@ rockBtn.addEventListener('click', ()=>{
     computerChoiceP.innerText =`I chose: ${computerChoice}` ;
     playRound(humanChoice, computerChoice); 
     roundResults.append(resultItem);
-
-
-  
 })
 paperBtn.addEventListener('click', ()=>{
     humanChoice = paperBtn.innerText;
@@ -64,6 +61,16 @@ scissorsBtn.addEventListener('click', ()=>{
     roundResults.append(resultItem);
 
 })
+
+resetBtn.addEventListener('click',()=>{
+    console.log(humanScore)
+    humanScore = 0;
+    computerScore = 0;
+    resultItem.innerText = "Score Reset... Play again?"
+    console.log('clicked');
+})
+
+
 
 humanSelectionDiv.append(rockBtn);
 humanSelectionDiv.append(paperBtn);
@@ -139,24 +146,4 @@ const playRound = (humanChoice, computerChoice) =>{
     }
 }
 
-/*
-//const humanSelection = getHumanChoice();
-//const computerSelection = getComputerChoice();
 
-
-//playRound(humanSelection, computerSelection);
-
-// refreshes page to play again
-const replay =()=>{
-    let confirm = window.confirm(`Play Again?
-        \n Final Score: You: ${humanScore} : Computer: ${computerScore}`)
-    if (confirm){
-        window.location.reload();
-    } else {
-        window.alert(`Thanks for Playing!`)
-    }
-}
-
-replay();
-
-*/
