@@ -18,9 +18,9 @@ const computerChoiceP = document.getElementById('computer-choice');
 const resultList = document.getElementById('results');
 const resultItem = document.createElement('li');
 const resetBtn = document.getElementById('reset-btn');
-
 const roundResults = document.getElementById('round-results')
 
+resultItem.id = 'result';
 
 rockBtn.innerText = choices[0];
 paperBtn.innerText = choices[1];
@@ -30,7 +30,7 @@ paperBtn.type = "submit";
 scissorsBtn.type = "submit";
 
 if(roundResults.hasChildNodes()){
-    resultItem.innerText = 'Make your move';
+    resultItem.innerText = 'Make your move...';
     roundResults.append(resultItem);
 }
 
@@ -66,7 +66,7 @@ resetBtn.addEventListener('click',()=>{
     console.log(humanScore)
     humanScore = 0;
     computerScore = 0;
-    resultItem.innerText = "Score Reset... Play again?"
+    resultItem.innerText = `Score Reset... Play again? Score: \nYou: ${humanScore} : Computer: ${computerScore}`
     console.log('clicked');
 })
 
@@ -90,57 +90,51 @@ const playRound = (humanChoice, computerChoice) =>{
     //console.log(humanChoice, computerChoice)
     //human wins
     if(humanChoice === 'Rock' && computerChoice === 'Scissors'){
-        console.log(`human wins`);
         humanScore = humanScore + 1;
-        const message = `You win! ${humanChoice} beats ${computerChoice}. Score: You: ${humanScore} : Computer: ${computerScore}`
+        const message = `You win! ${humanChoice} beats ${computerChoice}. \nScore: You: ${humanScore} : Computer: ${computerScore}`
         resultItem.innerText = `${message}`;
         return message;
     }
     if(humanChoice === 'Paper' && computerChoice === 'Rock'){
-        console.log(`human wins`);
         humanScore = humanScore + 1;
-        const message = `You win! ${humanChoice} beats ${computerChoice}. Score: You: ${humanScore} : Computer: ${computerScore}`;
+        const message = `You win! ${humanChoice} beats ${computerChoice}. \nScore: You: ${humanScore} : Computer: ${computerScore}`;
         resultItem.innerText = `${message}`;
         return message;
 
     }
     if(humanChoice === 'Scissors' && computerChoice === 'Paper'){
-        console.log(`human wins`);
         humanScore = humanScore + 1;
-        const message = `You win! ${humanChoice} beats ${computerChoice}. Score: You: ${humanScore} : Computer: ${computerScore}`
+        const message = `You win! ${humanChoice} beats ${computerChoice}. \nScore: You: ${humanScore} : Computer: ${computerScore}`
         resultItem.innerText = `${message}`;
         return message;
     }
    
     //computer wins
     if(humanChoice === 'Rock' && computerChoice === 'Paper'){
-        console.log(`computer wins`);
         computerScore = computerScore +1;
         
-        const message = `You Lose! ${humanChoice} beats ${computerChoice}. Score: You: ${humanScore} : Computer: ${computerScore}`
+        const message = `You Lose! ${humanChoice} beats ${computerChoice}. \nScore: You: ${humanScore} : Computer: ${computerScore}`
         resultItem.innerText = `${message}`;
         return message;
     }
     if(humanChoice === 'Paper' && computerChoice === 'Scissors'){
-        console.log(`computer wins`);
         computerScore = computerScore +1;
         
-        const message = `You Lose! ${humanChoice} beats ${computerChoice}. Score: You: ${humanScore} : Computer: ${computerScore}`
+        const message = `You Lose! ${humanChoice} beats ${computerChoice}. \nScore: You: ${humanScore} : Computer: ${computerScore}`
         resultItem.innerText = `${message}`;
         return message;
     }
     if(humanChoice === 'Scissors' && computerChoice === 'Rock'){
-        console.log(`computer wins`);
         computerScore = computerScore +1;
         
-        const message = `You Lose! ${humanChoice} beats ${computerChoice}. Score: You: ${humanScore} : Computer: ${computerScore}`
+        const message = `You Lose! ${humanChoice} beats ${computerChoice}. \nScore: You: ${humanScore} : Computer: ${computerScore}`
         resultItem.innerText = `${message}`;
         return message;
     }
     //tie
     if(humanChoice === computerChoice){
         console.log(`tie`);
-        const message = `It's a tie! You both choosed ${computerChoice}! Score: You: ${humanScore} : Computer: ${computerScore}`
+        const message = `It's a tie! You both choosed ${computerChoice}! \nScore: You: ${humanScore} : Computer: ${computerScore}`
         resultItem.innerText = `${message}`;
         return message;
     }
